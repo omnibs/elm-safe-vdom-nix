@@ -6,6 +6,7 @@ This file copies elm-kernel-replacements/elm-stuff/ into elm-home/elm-stuff/.
 
 import * as path from "node:path";
 import * as fs from "node:fs";
+import { execSync } from "node:child_process";
 
 // This will always be called before `elm make`, from the same directory.
 // It's required `elm make` runs from the `elm.json` directory.
@@ -126,6 +127,8 @@ function replaceKernelPackages() {
 
   if (!alreadyUpToDate) {
     fs.cpSync(PATCH_DIR, ELM_HOME_PACKAGES, { recursive: true });
+    // Fix permissions after copying from nix store:
+    execSync(`chmod -R +w ${ELM_HOME_PACKAGES}`);
     // Force Elm to recompile everything:
     fs.rmSync(ELM_STUFF, { recursive: true, force: true });
   }
