@@ -13,8 +13,14 @@ const ROOT = process.env.PWD;
 
 const PATCH_DIR = path.join(ROOT, "elm-kernel-replacements", "elm-stuff");
 
-const ELM_HOME =
-  process.env.ELM_HOME || path.join(ROOT, "elm-home", "elm-stuff");
+if (!process.env.ELM_HOME) {
+  console.error(
+    "Error: ELM_HOME environment variable is not set. This script must be run with ELM_HOME set to the elm home directory you want to patch."
+  );
+  process.exit(1);
+}
+
+const ELM_HOME = process.env.ELM_HOME;
 
 const ELM_HOME_PACKAGES = path.join(ELM_HOME, "0.19.1", "packages");
 
