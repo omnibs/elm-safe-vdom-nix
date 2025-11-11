@@ -37,8 +37,7 @@ export function replaceKernelPackages() {
     elmJsonDependencies = parseElmJsonDependencies(path.join(ROOT, "elm.json"));
   } catch (error) {
     throw new Error(
-      `Failed to parse elm.json: ${
-        error instanceof Error ? error.message : String(error)
+      `Failed to parse elm.json: ${error instanceof Error ? error.message : String(error)
       }`
     );
   }
@@ -63,8 +62,7 @@ export function replaceKernelPackages() {
 
       if (elmJsonVersion !== version.name) {
         throw new Error(
-          `Replace Kernel packages: Expected version ${
-            version.name
+          `Replace Kernel packages: Expected version ${version.name
           } for ${packageIdentifier} in elm.json, but got: ${String(
             elmJsonVersion
           )}`
@@ -85,7 +83,7 @@ export function replaceKernelPackages() {
       if (
         !fs.existsSync(path.join(destinationDir, sourceFileName)) ||
         fs.readFileSync(path.join(destinationDir, sourceFileName), "utf-8") !==
-          fs.readFileSync(path.join(version.path, sourceFileName), "utf-8")
+        fs.readFileSync(path.join(version.path, sourceFileName), "utf-8")
       ) {
         alreadyUpToDate = false;
         // Force Elm to use the patched files we’ll copy soon:
