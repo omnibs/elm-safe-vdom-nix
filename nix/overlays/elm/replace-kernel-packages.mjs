@@ -11,7 +11,16 @@ import * as fs from "node:fs";
 // It's required `elm make` runs from the `elm.json` directory.
 const ROOT = process.env.PWD;
 
-const PATCH_DIR = path.join(ROOT, "elm-kernel-replacements", "elm-stuff");
+if (process.argv.length !== 3) {
+  console.error('Usage: node replace-kernel-packages.mjs path/to/elm-package-patches');
+  process.exit(1);
+}
+if (!fs.existsSync(process.argv[2])) {
+  console.error(`Error: Elm package patches directory "${process.argv[2]}" does not exist.`);
+  process.exit(1);
+}
+
+const PATCH_DIR = process.argv[2];
 
 if (!process.env.ELM_HOME) {
   console.error(
