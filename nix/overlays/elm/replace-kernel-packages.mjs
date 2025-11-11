@@ -29,6 +29,10 @@ if (!process.env.ELM_HOME) {
   process.exit(1);
 }
 
+if (!fs.existsSync(process.env.ELM_HOME)) {
+  fs.mkdirSync(process.env.ELM_HOME, { recursive: true });
+}
+
 const ELM_HOME = process.env.ELM_HOME;
 
 const ELM_HOME_PACKAGES = path.join(ELM_HOME, "0.19.1", "packages");
