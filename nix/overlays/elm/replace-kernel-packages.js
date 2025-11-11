@@ -12,7 +12,7 @@ import * as fs from "node:fs";
 const ROOT = process.env.PWD;
 
 if (process.argv.length !== 3) {
-  console.error('Usage: node replace-kernel-packages.mjs path/to/elm-package-patches');
+  console.error('Usage: node replace-kernel-packages.js path/to/elm-package-patches');
   process.exit(1);
 }
 if (!fs.existsSync(process.argv[2])) {
@@ -41,10 +41,9 @@ const ELM_HOME_PACKAGES = path.join(ELM_HOME, "0.19.1", "packages");
 // Excludes elm-test and elm-review stuff.
 const ELM_STUFF = path.join(ROOT, "elm-stuff", "0.19.1");
 
-/**
- * @returns {void}
- */
-export function replaceKernelPackages() {
+replaceKernelPackages();
+
+function replaceKernelPackages() {
   let elmJsonDependencies;
   try {
     elmJsonDependencies = parseElmJsonDependencies(path.join(ROOT, "elm.json"));
