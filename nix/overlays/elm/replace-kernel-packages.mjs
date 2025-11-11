@@ -6,9 +6,10 @@ This file copies elm-kernel-replacements/elm-stuff/ into elm-home/elm-stuff/.
 
 import * as path from "node:path";
 import * as fs from "node:fs";
-import * as url from "node:url";
 
-const ROOT = path.dirname(path.dirname(url.fileURLToPath(import.meta.url)));
+// This will always be called before `elm make`, from the same directory.
+// It's required `elm make` runs from the `elm.json` directory.
+const ROOT = process.env.PWD;
 
 const PATCH_DIR = path.join(ROOT, "elm-kernel-replacements", "elm-stuff");
 
