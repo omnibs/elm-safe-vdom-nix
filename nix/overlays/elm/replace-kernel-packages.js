@@ -72,6 +72,9 @@ function replaceKernelPackages() {
       const packageIdentifier = `${user.name}/${package_.name}`;
       const elmJsonVersion = elmJsonDependencies[packageIdentifier];
 
+      // some elm.json don't use all patched packages, and that's fine
+      if (!elmJsonVersion) continue;
+
       if (elmJsonVersion !== version.name) {
         throw new Error(
           `Replace Kernel packages: Expected version ${version.name
