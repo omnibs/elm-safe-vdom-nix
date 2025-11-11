@@ -1,0 +1,8 @@
+# direnv stuff
+.direnv/
+
+# Build artifacts directory
+_build/
+
+# Elm
+elm-stuff/
