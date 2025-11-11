@@ -1,6 +1,14 @@
 /*
 
-This file copies elm-kernel-replacements/elm-stuff/ into elm-home/elm-stuff/.
+This file copies patched elm packages into the ELM_HOME directory
+
+Copied from https://github.com/lydell/elm-safe-virtual-dom/blob/e87fc040defa3879ab814077c69666b14977cb4b/replace-kernel-packages.mjs
+
+Changed to fit our needs.
+
+If updating this, diff it against the permalink above to see our changes. To
+learn more about why we made our changes, see the blame on the changed lines,
+or take a look at this file's commit history, which should be short.
 
 */
 
