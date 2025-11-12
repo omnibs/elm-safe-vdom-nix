@@ -6,3 +6,6 @@ _build/
 
 # Elm
 elm-stuff/
+
+# node
+node_modules/

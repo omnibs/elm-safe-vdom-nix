@@ -7,7 +7,7 @@ in
 pkgs.mkShell ({
   name = "elm-safe-vdom-sample";
 
-  buildInputs = [ pkgs.vdom-patched-elm ];
+  buildInputs = [ pkgs.vdom-patched-elm pkgs.nodejs_24 ];
 
   # We move ELM_HOME to a local directory to avoid impacting projects
   # outside this repository with our elm-safe-virtual-dom patches.

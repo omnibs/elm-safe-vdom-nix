@@ -1,0 +1,23 @@
+{
+  "name": "elm-safe-vdom-sample",
+  "version": "1.0.0",
+  "description": "This is a sample repository demonstrating how automate applying `lydell/elm-safe-virtual-dom` patches in a Nix shell environment.",
+  "homepage": "https://github.com/omnibs/elm-safe-vdom-nix#readme",
+  "bugs": {
+    "url": "https://github.com/omnibs/elm-safe-vdom-nix/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omnibs/elm-safe-vdom-nix.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "elm-solve-deps-wasm": "^2.0.0"
+  }
+}
